@@ -1,0 +1,21 @@
+{
+  "name": "popebot",
+  "version": "0.0.1",
+  "description": "a modular irc bot written in javascript",
+  "author": "szalwia <szalwiaxd@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/szalwia/popebot"
+  },
+  "bugs": {
+    "url": "https://github.com/szalwia/popebot"
+  },
+  "dependencies": {
+    "irc": "0.3.x",
+    "yargs": "3.x"
+  },
+  "preferGlobal": true,
+  "private": true,
+  "license": "ISC"
+}
+
