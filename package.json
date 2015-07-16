@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "irc": "0.3.x",
+    "sqlite3": "3.x",
     "yargs": "3.x"
   },
   "preferGlobal": true,
