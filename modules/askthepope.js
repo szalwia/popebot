@@ -3,6 +3,9 @@
 // Copyright (c) 2015 szalwia <szalwiaxd@gmail.com>
 // License: ISC
 
+// Message regexp.
+var regexp = /^\.(ask|8ball|askthepope)\b/i;
+
 var responses = [
   {
     "pl": "Co?",
@@ -97,3 +100,14 @@ var responses = [
     "en": "Let's be gentle."
   }
 ];
+
+module.exports.on_message = function (popebot, from, to, text, message) {
+  if (regexp.test(text)) {
+    // TODO: Add language support.
+    var response = responses[Math.floor(Math.random()*responses.length)].pl;
+    popebot.client.say(to, from + ": " + response);
+
+    return true;
+  }
+  return false;
+};
