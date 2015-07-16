@@ -22,7 +22,16 @@ popebot.config = JSON.parse(fs.readFileSync(argv._[0], "utf8"));
 // Load modules.
 popebot.modules = [];
 for (var m in popebot.config.modules) {
-  popebot.modules.push(require('./modules/' + popebot.config.modules[m] + '.js'));
+  var mod = require('./modules/' + popebot.config.modules[m] + '.js');
+
+  // Initialize module.
+  if (mod.hasOwnProperty("on_init")) {
+    if (mod.on_init(popebot) === false) {
+      continue;
+    }
+  }
+
+  popebot.modules.push(mod);
 }
 
 // Set up server connection.
